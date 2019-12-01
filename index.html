@@ -7,7 +7,7 @@
 		<title>SVG Animation</title>
 
 		<meta name="description" content="Ways to animate SVG">
-		<meta name="author" content="Daniela Popescu">
+		<meta name="author" content="Ira Litvinchuk">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+		<link rel="stylesheet" href="css/theme/moon.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,7 +24,7 @@
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
-	
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -35,462 +35,571 @@
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h3>SVG Animation</h3>
-          <ol>
-  					<li>Native</li>
-            <li>CSS</li>
-            <li>JS</li>
-          </ol>
-				</section>
-					
-				<section>
-					<h2>Why SVG Animation</h2>
-					<ul>
-						<li>Lightweight</li>
-						<li>Fast</li>
-						<li>Scalable</li>
-            <li>Lots of online tutorials</li>
-            <li>Interactivity</li>
-            <li>Supported on all major browsers (except IE8 and less)</li>
-					</ul>
-				</section>
-        
-        
-        </section>
+			<!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>SVG</h1>
+                    <h3>image format that is based on XML</h3>
+                    <p>
+                        <small>Slides created by <a href="https://github.com/iralitv">Ira Litvinchuk</a></small>
+                    </p>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-          <section>
-            <h2>Native SVG animation</h2>
-            <p>Animation is done by manipulating the attributes of shapes over time. This is done using one or more of the 5 SVG animation elements.</p>
-          </section>
-					<section>
-            <h2>Elements</h2>
-            <p>Animation is achieved by nesting one or more of the following elements inside the element that needs animation.</p>
-            <ul>
-              <li>set</li>
-              <li>animate</li>
-              <li>animateMotion</li>
-              <li>animateColor (deprecated)</li>
-              <li>animateTransform</li>
-            </ul>
-					</section>
-          <section>
-            <h2>animate</h2>
-            <p>Animates an attribute</p>
-            <pre>
-              <code>
-<circle cx="30" cy="30" r="25" style="stroke: none; fill: #ff0000;">
+                <section>
+                    <section>
+                        <h2>Typically frontend developer relationship with image animation</h2>
+                    </section>
+                    <section>
+                        <h3>Bad quality of image</h3>
+                        <p>
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/51FX1z3%2BAtL._SX324_BO1,204,203,200_.jpg" alt="">
+                        </p>
+                     </section>
+                    <section>
+                        <h3>Resize problems</h3>
+                        <p>
+                            <img src="https://devmenow.com/wp-content/uploads/2019/03/fE-dev-img.png"
+                                 width="600"
+                                 alt="">
+                        </p>
+                     </section>
+                </section>
+
+                <!-- Example of nested vertical slides -->
+                <section>
+                    <section>
+                        <h1>SVG? WTF?</h1>
+                    </section>
+                    <section>
+                        <h3>Why SVG Animation?</h3>
+                        <ul>
+                            <li>Lightweight</li>
+                            <li>Fast</li>
+                            <li>Scalable</li>
+                            <li>Lots of online tutorials</li>
+                            <li>Interactivity</li>
+                            <li>Supported on all major browsers (except IE8 and less)</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>SVG Paths</h2>
+                        <p>
+                            There is one overpowered element in SVG, that would be the element <code class="hljs html">&lt path &gt</code>
+                        </p>
+                    </section>
+                    <section>
+                         <p>The element takes this sequence of drawing commands through the attribute <span class="blue">d</span>.</p>
+                         <pre><code>
+    <!-- A right-angled triangle -->
+    <path d="M10 10 L175 10 L175 175 Z"></path>
+                         </code></pre>
+                         <p>
+                            <svg width="300px" height="175px" version="1.1">
+                                 <path d="M10 10 L175 10 L175 175 Z"></path>
+                            </svg>
+                         </p>
+                    </section>
+                    <section>
+                        <h2>Other useful commands</h2>
+                        <ul>
+                            <li>arcs <code>(A)</code></li>
+                            <li>quadratic bezier curves  <code>(Q)</code></li>
+                            <li>cubic bezier curves  <code>(C)</code></li>
+                            <li>etc</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>
+                            "Okay, I get it. SVG is powerful, but how do I animate it?"
+                        </h2>
+                    </section>
+                    <section>
+                        <h2>SVG animation</h2>
+                        <ol>
+                            <li><p>CSS</p></li>
+                            <li><p>Native</p></li>
+                            <li><p>JS</p></li>
+                        </ol>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>CSS animation</h2>
+                    </section>
+                    <section>
+                        <p><code class="blue">stroke-dasharray</code> & <code class="blue">stroke-dashoffset</code></p>
+                        <img width="700px" height="auto" src="https://uploads.toptal.io/blog/image/123758/toptal-blog-image-1501855771209-e7241a8962fee8e1e344faa248cade72.jpg" alt="">
+                    </section>
+                    <section>
+                        <h3>Just curve line</h3>
+                        <pre><code>
+<svg width="300px" height="175px" version="1.1">
+    <path d="M10 80 Q 77.5 10, 145 80 T 280 80"
+    fill="transparent"
+    stroke="#000000"
+    stroke-width="4"></path>
+</svg>
+                        </code></pre>
+                        <p>
+                            <svg width="300px" height="175px" version="1.1">
+                                <path fill="transparent" stroke="#000000"
+                                stroke-width="4"
+                                class="path"
+                                d="M10 80 Q 77.5 10, 145 80 T 280 80"></path>
+                            </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Add <span class="blue">animation</span></h2>
+                        <pre><code style="font-size: 15px;">
+  .path {
+    stroke-dasharray: 320;
+    stroke-dashoffset: 0;
+    animation: dash 5s linear;
+  }
+  @keyframes dash {
+    from {
+      stroke-dashoffset: 320;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+                        </code></pre>
+                        <p>
+                            <svg width="300px" height="175px" class="svg-animation" version="1.1">
+                                <path fill="transparent" stroke="#000000"
+                                stroke-width="4"
+                                class="path"
+                                d="M10 80 Q 77.5 10, 145 80 T 280 80"></path>
+                            </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h2>With more <span class="blue">paths</span></h2>
+                        <pre><code>
+  <svg width="300px" height="175px" version="1.1">
+    <path d="M10 80 Q 77.5 10, 145 80 T 280 80" fill="transparent" stroke="#000000" class="path"></path>
+    <path d="M10 80 Q 77.5 10, 145 80 T 280 80" fill="transparent" stroke="#FF2851" class="line2"></path>
+    <path d="M10 80 Q 77.5 10, 145 80 T 280 80" fill="transparent" stroke="#000000" class="line1"></path>
+  </svg>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>And more <span class="blue">styles</span></h2>
+                        <pre><code>
+    .line1 {
+      stroke-dasharray: 340;
+      stroke-dashoffset: 40;
+      animation: dash 2.5s linear alternate infinite;
+    }
+
+    .line2 {
+      stroke-dasharray: 320;
+      stroke-dashoffset: 320;
+      animation: dash2 2.5s linear alternate infinite;
+    }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>And main - with more <span class="blue">animations</span></h2>
+                        <pre><code>
+    @keyframes dash {
+        from {
+          stroke-dashoffset: 360;
+        }
+        to {
+          stroke-dashoffset: 40;
+        }
+    }
+    @keyframes dash2 {
+        from {
+          stroke-dashoffset: 280;
+        }
+        to {
+          stroke-dashoffset: -40;
+        }
+    }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2><span class="blue">Result</span></h2>
+                            <svg width="300px" height="175px" version="1.1">
+                              <path fill="transparent" stroke="#000000" stroke-width="4" d="M10 80 Q 77.5 10, 145 80 T 280 80" class="path1"></path>
+                              <path fill="transparent" stroke="#FF2851" stroke-width="4" d="M10 80 Q 77.5 10, 145 80 T 280 80" class="line2"></path>
+                              <path fill="transparent" stroke="#000000" stroke-width="4" d="M10 80 Q 77.5 10, 145 80 T 280 80" class="line1"></path>
+                            </svg>
+                    </section>
+                    <section>
+                        <h3>Example</h3>
+                        <div id="ps4" class="ps4-class">
+
+                        <svg version="1.1" viewBox="0 0 1280 668" class="line-animated">
+                          <path
+                              d="
+                        M 155 313 L 161.667 236.333
+                        M 161.667 236.333 L 538.333 236.333
+                        M 538.333 236.333 L 538.333 313
+                        M 538.333 313 L 155 313
+                        M 538.333 241 L 550.333 241.666
+                        M 550.333 236.333 L 550.333 313
+                        M 550.333 236.333 L 1140 236.333
+                        M 1140 236.333 L 1147 313
+                        M 1147 313 L 550.333 313
+                        M 1109 313 L 1109 345
+                        M 550.333 345 L 1147 345
+                        M 1147 345 L 1156 423
+                        M 1156 423 L 550.333 423
+                        M 550.333 423 L 550.333 345
+                        M 550.333 423 L 538.333 423
+                        M 538.333 423 L 146 423
+                        M 146 423 L 155 345
+                        M 155 345 L 538.333 345
+                        M 538.333 345 L 538.333 423
+                        M 194 313 L 194 345
+                        M 983.667 264.667 L 1014.333 264.667
+                        M 1014.333 264.667 L 1014.333 274.667
+                        M 1014.333 274 L 983.667 274
+                        M 983.667 274 L 983.667 282.333
+                        M 1019 282.333 L 1037 282.333
+                        M 1037 282.333 L 1037 264.667
+                        M 1037 264.667 L 1054 264.667
+                        M 1085.333 264.667 L 1056.333 279.667
+                        M 1056.333 279.667 L 1090.667 279.667
+                        M 1085.333 264.667 L 1085.333 282.333
+                        "
+                              stroke="#fff"
+                              stroke-width="2"
+                              fill="none"
+                              stroke-dasharray="988.01 988.01"
+                              stroke-dashoffset="0"
+                              >
+                          </path>
+                        </svg>
+
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Native animation</h2>
+                        <p>Animation is done by manipulating the attributes of shapes over time. This is done using one or more of the 4 SVG animation elements.</p>
+                    </section>
+                    <section>
+                        <h2>Elements</h2>
+                        <p>Animation is achieved by nesting one or more of the following elements inside the element that needs animation.</p>
+                        <ul>
+                          <li>set</li>
+                          <li>animate</li>
+                          <li>animateMotion</li>
+                          <li>animateTransform</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3><span class="blue">Animate</span></h3>
+                        <p class="subtitle">Animates an attribute</p>
+                        <pre>
+                          <code class="hljs arduino code-fontsize">
+<circle cx="30" cy="30" r="25" style="fill: #ff0000;">
   <animate attributeName="cx" attributeType="XML"
     from="30"  to="470"
     begin="0s" dur="5s"
     fill="remove" repeatCount="indefinite" />
-</circle>       
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="100">
-                <circle cx="30" cy="30" r="25" style="stroke: none; fill: #ff0000;">
-                    <animate attributeName="cx" attributeType="XML"
-                             from="30"  to="470"
-                             begin="0s" dur="5s"
-                             fill="remove" repeatCount="indefinite">
-                </circle>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>animateMotion</h2>
-            <p>Animates motion along a path.</p>
-            <pre>
-              <code>
-<circle cx="0" cy="0" r="15" style="stroke: none; fill: #ff0000;">
-<animateMotion
-  path="M10,50 q60,50 100,0 q60,-50 100,0"
-  begin="0s" dur="10s" repeatCount="indefinite"
-  rotate="auto"
-  />
 </circle>
-<path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>  
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="200">
-                <path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>
-                <rect x="0" y="0" width="50" height="50"  style="stroke: #ffffff; fill: #ff0000;">
-                  <animateMotion
-                      path="M10,50 q60,50 100,0 q60,-50 100,0"
-                      begin="0s" dur="10s" repeatCount="indefinite"
-                      rotate="auto"
-                      />
-                </rect>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>animateTransform</h2>
-            <p>Animates the transform attribute of a shape.</p>
-            <pre>
-              <code>
-<rect x="0" y="0" rx="20" ry="20" width="150" height="150" style="fill: #ff0000; stroke: #000000; stroke-width: 5; opacity: 0.5" transform="rotate(155.739 250 150)">
-  <animateTransform attributeName="transform" 
-    type="rotate" 
-    from="0 250 150" 
-    to="360 250 150" 
-    begin="0s" 
-    dur="10s" 
+                          </code>
+                        </pre>
+                        <p>
+                          <svg width="500" height="100">
+                            <circle cx="30" cy="30" r="25" style="stroke: none; fill: #ff0000;">
+                                <animate attributeName="cx" attributeType="XML"
+                                         from="30"  to="470"
+                                         begin="0s" dur="5s"
+                                         fill="remove" repeatCount="indefinite" />
+                            </circle>
+                          </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h3><span class="blue">animate</span>Motion</h3>
+                        <p class="subtitle">Animates motion along a path.</p>
+                        <pre>
+                          <code class="hljs arduino code-fontsize">
+<path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>
+<rect x="0" y="0" width="50" height="50"  style="stroke: #ffffff; fill: #ff0000;">
+  <animateMotion
+      path="M10,50 q60,50 100,0 q60,-50 100,0"
+      begin="0s" dur="10s" repeatCount="indefinite"
+      rotate="auto"
+      />
+</rect>
+                          </code>
+                        </pre>
+                        <p>
+                          <svg width="500" height="200">
+                            <path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>
+                            <rect x="0" y="0" width="50" height="50"  style="stroke: #ffffff; fill: #ff0000;">
+                              <animateMotion
+                                  path="M10,50 q60,50 100,0 q60,-50 100,0"
+                                  begin="0s" dur="10s" repeatCount="indefinite"
+                                  rotate="auto"
+                                  />
+                            </rect>
+                          </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h3><span class="blue">animate</span>Transform</h3>
+                        <p class="subtitle">Animates the transform attribute of a shape.</p>
+                        <pre>
+                          <code class="hljs arduino code-fontsize">
+<rect x="140" y="140" rx="20" ry="20" width="50" height="50" style="fill: #ff0000;">
+  <animateTransform attributeName="transform"
+    type="rotate"
+    from="0 150 100"
+    to="360 150 100"
+    begin="0s"
+    dur="10s"
     repeatCount="indefinite"
     />
 </rect>
-<circle cx="250" cy="150" r="2" style="stroke: none; fill: #ff0000;"></circle>
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="300">
-                <rect x="0" y="0" rx="20" ry="20" width="150" height="150" style="fill: #ff0000; stroke: #000000; stroke-width: 5; opacity: 0.5" transform="rotate(155.739 250 150)">
-                  <animateTransform attributeName="transform" type="rotate" from="0 250 150" to="360 250 150" begin="0s" dur="10s" repeatCount="indefinite" />
-                </rect>
-                <circle cx="250" cy="150" r="2" style="stroke: none; fill: #ff0000;"></circle>
-              </svg>
-            </p>
-          </section>
-          
-          <section>
-            <h2>animateTransform</h2>
-            <p>AnimatesTransform type="scale".</p>
-            <pre>
-              <code>
-<rect x="0" y="0" rx="5" ry="5" width="50" height="50" style="fill: #ff0000; stroke: #000000; stroke-width: 2; opacity: 0.5">
-  <animateTransform attributeName="transform"
-    type="scale"
-    from="1 1" 
-    to="2 3"
-    begin="0s" 
-    dur="5s"
-    fill="freeze"
-    repeatCount="indefinite"
-  />
-</rect>
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="300">
-                <rect x="50" y="50" rx="5" ry="5" width="50" height="50" style="fill: #ff0000; stroke: #000000; stroke-width: 2; opacity: 0.5">
-                  <animateTransform attributeName="transform"
+                          </code>
+                        </pre>
+                        <p>
+                          <svg width="500" height="300">
+                            <rect x="140" y="140" rx="20" ry="20" width="50" height="50" style="fill: #ff0000; stroke: #000000; stroke-width: 5; opacity: 0.5" >
+                              <animateTransform attributeName="transform"
+                                type="rotate"
+                                from="0 150 100"
+                                to="360 150 100"
+                                begin="0s"
+                                dur="10s"
+                                repeatCount="indefinite"
+                                />
+                            </rect>
+                            <circle cx="150" cy="100" r="2" style="stroke: none; fill: #ff0000;"></circle>
+                          </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h3><span class="blue">animate</span>Transform</h3>
+                        <p class="subtitle">AnimatesTransform type="scale".</p>
+                        <pre>
+                          <code class="hljs arduino code-fontsize">
+<polygon points="50,5 20,99 95,39 5,39 80,99"  style="fill:#00BD9D;">
+<animateTransform attributeName="transform"
                     type="scale"
-                    from="1 1" 
-                    to="2 3"
-                    begin="0s" 
-                    dur="5s"
-                    fill="freeze"
+                    from="1 1" to="2 2"
+                    begin="0s" dur="10s"
                     repeatCount="indefinite"
-                  />
-                </rect>
-              </svg>
-            </p>
-          </section>
-				</section>
-        <section>
-          <section>
-            <h2>Interactivity</h2>
-            <p>begin="mouseover"</p>
-            <p>begin="mouseover"</p>
-            <pre>
-              <code>
-<circle cx="0" cy="0" r="15" style="stroke: none; fill: #ff0000;">
-<animateMotion
-  path="M10,50 q60,50 100,0 q60,-50 100,0"
-  begin="mouseover" dur="3s" repeatCount="1"
-  rotate="auto"
-  />
-</circle>
-<path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>  
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="200">
-                <path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>
-                <circle cx="0" cy="0" r="15" style="stroke: #ffffff; fill: #ff0000;">
-                  <animateMotion
-                      path="M10,50 q60,50 100,0 q60,-50 100,0"
-                      begin="mouseover" dur="3s" repeatCount="1"
-                      rotate="auto"
-                      />
-                </circle>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>Interactivity</h2>
-            <p>begin="click"</p>
-            <pre>
-              <code>
-<circle cx="0" cy="0" r="15" style="stroke: none; fill: #ff0000;">
-<animateMotion
-  path="M10,50 q60,50 100,0 q60,-50 100,0"
-  begin="click" dur="3s" repeatCount="1"
-  rotate="auto"
-  />
-</circle>
-<path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>  
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="200">
-                <path d="M10,50 q60,50 100,0 q60,-50 100,0" style="stroke: #ff0000; fill: none;"></path>
-                <circle cx="0" cy="0" r="15" style="stroke: #ffffff; fill: #ff0000;">
-                  <animateMotion
-                      path="M10,50 q60,50 100,0 q60,-50 100,0"
-                      begin="click" dur="3s" repeatCount="1"
-                      rotate="auto"
-                      />
-                </circle>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>Combine animations</h2>
-            <p>Synchronize the beginning of one animation to the end of another</p>
-            <pre>
-              <code>
-<rect x="0" y="0" width="100" height="100"
-  style="stroke: #ff0000; stroke-width: 2; fill: #000000; opacity: 0.7">
+                    additive="sum"></animateTransform>
+<animateTransform attributeName="transform"
+                    type="rotate"
+                    from="0 130 120"
+                    to="360 130 120"
+                    begin="0s" dur="10s"
+                    repeatCount="indefinite"
+                    additive="sum"></animateTransform>
+</polygon>
+                          </code>
+                        </pre>
+                        <p>
+                          <svg style="width: 500px; height: 300px;">
+                            <polygon points="50,5 20,99 95,39 5,39 80,99"  style="fill:#00BD9D;stroke:#00BD9D;stroke-width:1;fill-rule:nonzero;">
+                              <animateTransform attributeName="transform" attributeType="XML"
+                                                    type="scale"
+                                                    from="1 1" to="3 3"
+                                                    begin="0s" dur="10s"
+                                                repeatCount="indefinite"
+                                                    additive="sum"/>
+                                  <animateTransform attributeName="transform" attributeType="XML"
+                                                    type="rotate"
+                                                    from="0 130 120"
+                                                    to="360 130 120"
+                                                    begin="0s" dur="10s"
+
+                                                    repeatCount="indefinite"
+                                                    additive="sum"/>
+                              </polygon>
+                          </svg>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Combine <span class="blue">animations</span></h3>
+                        <p class="subtitle">Synchronize beginning of one animation to end of another</p>
+                        <pre>
+                          <code class="hljs arduino code-fontsize">
+<rect x="20" y="20" width="100" height="100" style="stroke: #ff0000">
   <animate id="first"
-   attributeName="x" attributeType="XML"
-   from="0" to="396"
-   begin="click" dur="2s" fill="freeze"
+   attributeName="x"
+   from="20" to="370"
+   begin="click" dur="4s" fill="freeze"
   />
   <animate
-    attributeName="y" attributeType="XML"
-    from="0" to="50"
-    begin="first.end" dur="1s" fill="freeze"
+    attributeName="y"
+    from="20" to="80"
+    begin="first.end" dur="2s" fill="freeze"
     />
 </rect>
-              </code>
-            </pre>
-            <p>
-              <svg width="500" height="200">
-                <rect x="0" y="0" width="100" height="100"
-                  style="stroke: #ff0000; stroke-width: 2; fill: #000000; opacity: 0.7">
-                  <animate id="first"
-                   attributeName="x" attributeType="XML"
-                   from="0" to="396"
-                   begin="click" dur="2s" fill="freeze"
-                  />
-                  <animate
-                    attributeName="y" attributeType="XML"
-                    from="0" to="50"
-                    begin="first.end" dur="1s" fill="freeze"
-                    />
-                </rect>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>Additive animations</h2>
-            <p>Cumulate two animations with the same name.</p>
-            <p>additive="sum"</p>
-            <pre>
-              <code>
-<svg width="800" height="500">
-  <polygon fill="#FFFFFF" stroke="#FFF800" stroke-width="3" points="383,138 353,227 428,172 338,172 413,227 ">
-  <animateTransform attributeName="transform" attributeType="XML"
-      type="scale"
-      from="1" to="1.5"
-      begin="0s" dur="5s"
-      repeatCount="indefinite"
-      additive="sum"
-    />
-  <animateTransform attributeName="transform" attributeType="XML"
-      type="rotate"
-      from="0 380 185" to="360 380 185"
-      begin="0s" dur="5s"
-      fill="freeze"
-      repeatCount="indefinite"
-      additive="sum"
-    />
-  </poligon>
-</svg>
-              </code>
-            </pre>
-            <p>
-              <svg width="800" height="500">
-                <polygon fill="#FFFFFF" stroke="#FFF800" stroke-width="3" points="383,138 353,227 428,172 338,172 413,227 ">
-                <animateTransform attributeName="transform" attributeType="XML"
-                    type="scale"
-                    from="1" to="1.5"
-                    begin="0s" dur="5s"
-                    repeatCount="indefinite"
-                    additive="sum"
-                  />
-                <animateTransform attributeName="transform" attributeType="XML"
-                    type="rotate"
-                    from="0 380 185" to="360 380 185"
-                    begin="0s" dur="5s"
-                    fill="freeze"
-                    repeatCount="indefinite"
-                    additive="sum"
-                  />
-                </poligon>
-              </svg>
-            </p>
-          </section>
-          <section>
-            <h2>Repeat animations</h2>
-            <p>repeatCount, repeatDur</p>
-            <pre>
-              <code>
-<svg width="800" height="500">
-  <path d="M1,255 C188,100 289,98 494,254" />
-  <polygon points="50,5 20,94 95,39 5,39 80,94"
-    style="fill:#FFFFFF;stroke:yellow;stroke-width:3;fill-rule:nonzero;">
-  <animateMotion id="forward"
-    path="M1,255 C188,100 289,98 494,254"
-    begin="click" dur="1s" repeatCount="indefinite" repeatDur="3s"
-    fill="remove"
-    rotate="auto"
-    />
-  <animateTransform attributeName="transform"
-    type="scale"
-    from="1" 
-    to="2"
-    begin="forward.end" 
-    dur="2s"
-    fill="freeze"
-    repeatCount="3"
-    repeatDur="5.5s"
-    />
-</svg>
-              </code>
-            </pre>
-            <p>
-              <svg width="800" height="500">
-                <path d="M1,255 C188,100 289,98 494,254" />
-                <polygon points="50,5 20,94 95,39 5,39 80,94"
-                  style="fill:#FFFFFF;stroke:yellow;stroke-width:3;fill-rule:nonzero;">
-                <animateMotion id="forward"
-                  path="M1,255 C188,100 289,98 494,254"
-                  begin="click" dur="1s" repeatCount="indefinite" repeatDur="3s"
-                  fill="remove"
-                  rotate="auto"
-                  />
-                <animateTransform attributeName="transform"
-                  type="scale"
-                  from="1" 
-                  to="2"
-                  begin="forward.end" 
-                  dur="2s"
-                  fill="freeze"
-                  repeatCount="3"
-                  repeatDur="5.5s"
-                  />
-              </svg>
-            </p>
-          </section>
-        </section>
-        <section>
-          <h2>Example</h2>
-          
-          <p>
-            <svg width="100px" height="200px" viewBox="0 0 100 200" enable-background="new 0 0 100 200" xml:space="preserve">
-            <path fill="#BDA770" d="M31.981,72.671l-3.05-5.784l-3.112,0.011c0.101-0.198,0.208-0.403,0.276-0.505
-             c0.128-0.193,0.435-0.454,0.683-0.666l0.095-0.081c0.143-0.122,0.263-0.206,0.463-0.347c0.186-0.129,0.438-0.305,0.832-0.599
-             c1.428-1.061,1.911-2.427,1.93-2.483l0.003-0.008c0.4-1.308-0.066-2.012-0.136-2.104c-0.662-1.008-2.297-1.233-2.372-1.243
-             l-0.156-0.001c-1.021-0.041-1.669,0.331-1.755,0.383c-0.959,0.503-1.441,1.353-1.613,2.838c-0.146,1.277,0.361,3.264,0.977,4.82
-             l-3.322,0.012l-3.053,5.758h-0.03c0,0,0,13.822,0,14.109c0,0.282,0.321,0.979,1.103,0.962c0.736-0.017,10.577,0.012,11.11,0.017
-             c0.753,0.01,1.133-0.468,1.129-1.111C31.978,86.146,31.981,72.671,31.981,72.671z M24.638,62.13c0.156-1.349,0.417-1.931,1.25-2.367
-             l0.017-0.009c0.004-0.003,0.515-0.323,1.376-0.323c0.043,0,0.086,0,0.129,0.002c0.126,0.017,1.524,0.237,2.058,1.053l0.011,0.017
-             c0.004,0.007,0.418,0.433,0.07,1.577c-0.023,0.069-0.344,1.174-1.636,2.134c-0.388,0.288-0.639,0.465-0.821,0.593
-             c-0.204,0.141-1.008,0.758-1.354,1.205c-0.091,0.118-0.202,0.496-0.305,0.703C24.843,65.216,24.501,63.327,24.638,62.13z
-              M25.311,73.671c-1.422,0-2.574-1.154-2.574-2.576s1.152-2.573,2.574-2.573c1.421,0,2.574,1.151,2.574,2.573
-             S26.731,73.671,25.311,73.671z">
-             
-              <animate id="colorChangeOn" attributeName="fill" attributeType="XML"
-                from="#BDA770" 
-                to="#FFFFFF"
-                begin="mouseover" 
-                dur="0.1s"
-                fill="freeze"
-                repeatCount="1"
-                additive="sum"
-                />
-              <animateTransform id="translatePath" attributeName="transform" attributeType="XML"
-                type="translate"
-                from="0,0" 
-                to="-5, -20"
-                begin="colorChangeOn.end" 
-                dur="0.37s"
-                fill="freeze"
-                repeatCount="1"
-                additive="sum"
-                />
-              <animateTransform id="scalePath" attributeName="transform" attributeType="XML"
-                type="scale"
-                from="1" 
-                to="1.3"
-                begin="colorChangeOn.end" 
-                dur="0.37s"
-                fill="freeze"
-                repeatCount="1"
-                additive="sum"
-                />
-                <!--
-              <animate id="colorChangeOff" attributeName="fill" attributeType="XML"
-                from="#FFFFFF" 
-                to="#BDA770"
-                begin="mouseout" 
-                dur="0.1s"
-                fill="freeze"
-                repeatCount="indefinite"
-                additive="sum"
-                />-->
-             </path>
-            </svg>
-          </p>
-        </section>
-        
-        <section>
-          <h2>Best use cases</h2>
-          <ul>
-            <li>Stroke animation <a href="http://jakearchibald.com/2013/animated-line-drawing-svg/" target="_blank">http://jakearchibald.com/2013/animated-line-drawing-svg/</a></li>
-            <li>SVG as filter for video (Firefox Nightly required) <a href="http://www.paulirish.com/2010/svg-filters-on-html5-video/" target="_blank">http://www.paulirish.com/2010/svg-filters-on-html5-video/</a></li>
-            <li>SVG as mask for video (Firefox only) <a href="http://atomicrobotdesign.com/blog_media/svg_mask.html" target="_blank">http://atomicrobotdesign.com/blog_media/svg_mask.html</a></li>
-            <li>Draggable elements (requires SVG, CSS, JS) <a href="http://www.petercollingridge.co.uk/interactive-svg-components/draggable-svg-element" target="_blank">http://www.petercollingridge.co.uk/interactive-svg-components/draggable-svg-element</a></li>
-          </ul>
-        </section>
-        
-        <section>
-          <section>
-            <h2>CSS Animation</h2>
-            <p>Positional attributes vs CSS translate</p>
-            <p>We are more familiar with CSS animations.</p>
-          </section>
-        </section>
-				
-				<section>
-					<h2>JS Libraries</h2>
-          <p>Fine tune the interactivity</p>
-					<ul>
-            <li>Snap.svg</li>
-            <li>Velocity.js</li>
-            <li>Svg.js</li>
-            <li>Raphael.js</li>
-          </ul>
-				</section>
-				<section>
-					<section>
-						<h2>Reference links</h2>
-						<ul>
-							<li><small><a href="http://tutorials.jenkov.com/svg/svg-animation.html" target="_blank">SVG Tutorials by Jakob Jenkov</a></small></li>
-							<li><small><a href="http://www.hongkiat.com/blog/scalable-vector-graphics-animation/" target="_blank">A Look Into: Scalable Vector Graphics by Thoriq Firdaus</a></small></li>
-							<li><small><a href="http://bigbitecreative.com/introduction-svg-animation/" target="_blank">An introduction to SVG animation by Jon McPartland</a></small></li>
-              <li><small>Mouseover effects in SVG <a href="http://www.petercollingridge.co.uk/data-visualisation/mouseover-effects-svgs" target="_blank">http://www.petercollingridge.co.uk/data-visualisation/mouseover-effects-svgs</a></small></li>
-						</ul>
-						
-					</section>
-				</section>
+                          </code>
+                        </pre>
+                        <p>
+                          <svg style="width: 500px; height: 200px">
+                            <rect rx="20" ry="20" x="20" y="20" width="100" height="100"
+                              style="stroke: #ff0000; stroke-width: 5; fill: #000000; opacity: 0.7">
+                              <animate id="first"
+                               attributeName="x" attributeType="XML"
+                               from="20" to="370"
+                               begin="click" dur="4s" fill="freeze"
+                              />
+                              <animate
+                                attributeName="y" attributeType="XML"
+                                from="20" to="80"
+                                begin="first.end" dur="2s" fill="freeze"
+                                />
+                            </rect>
+                          </svg>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>JS animation</h2>
+                    </section>
+                    <section>
+                        <h2>JS Libraries</h2>
+                        <p>Fine tune the interactivity</p>
+                        <ul>
+                            <li>Snap.svg</li>
+                            <li>GSAP</li>
+                            <li>Velocity.js</li>
+                            <li>Svg.js</li>
+                            <li>Raphael.js</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Cool animation with GSAP library</h2>
+                        <p>How to get from this</p>
+                    </section>
+                    <section>
+                        <div class="container">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+
+                                    <circle id="path-1" cx="409.6" cy="409.6" r="409.6"/>
+
+                                    <linearGradient id="nighttime-gradient" x1="50%" y1="0%" y2="100%">
+                                        <stop stop-color="#060414" offset="0%"/>
+                                        <stop stop-color="#416584" offset="100%"/>
+                                    </linearGradient>
+
+                                    <linearGradient id="daytime-gradient" x1="50%" y1="0%" y2="100%">
+                                        <stop stop-color="#8CE7FF" offset="0%"/>
+                                        <stop stop-color="#A2F2FF" offset="100%"/>
+                                    </linearGradient>
+
+                                    <path id="path-6" d="M0 283L242 0l230 283z"/>
+
+                                    <path id="path-8" d="M0 335L214.2 0 418 335z"/>
+
+                                    <circle id="path-12" cx="511.6" cy="511.6" r="409.6"/>
+
+                                </defs>
+
+                                <g fill="none" fill-rule="evenodd">
+
+                                    <g id="Landscape" transform="translate(102 102)">
+
+                                        <mask id="mask-2" fill="#fff">
+                                            <use xlink:href="#path-1"/>
+                                        </mask>
+
+                                        <use id="Container" fill="#D8D8D8" xlink:href="#path-1"/>
+
+                                        <path id="Day-Time" fill="url(#daytime-gradient)" d="M-20-20h860v860H-20z" mask="url(#mask-2)"/>
+
+                                        <g id="stars" fill="#FFF" fill-rule="nonzero" opacity="0">
+                                            <path id="star-one" stroke="#FFF" d="M104.3 272.07l-7.67.48-.07-1 8-.5-5.36-6.7.78-.6 5.4 6.73 5.8-8.7.83.55-5.7 8.6 6.3-.38.06 1-6.1.38 5.45 6.8-.8.63-5.73-7.2-5.44 8.17-.82-.56 5.14-7.7zm.7-1.05l-.45.03.24.3.2-.33zm1.03.28l-.46.7.97-.07-.5-.63zm-1.72.77l1.05-.06.13.2.12-.2h-.26l-.53-.63-.5.72zm2-1.13l-.5.04-.4-.5-.36.54.77-.04.26.32.24-.36z" mask="url(#mask-2)" transform="rotate(30 104.594 271.05)"/>
+                                            <path id="star-two" stroke="#FFF" d="M320.3 214.07l-7.67.48-.07-1 8-.5-5.36-6.7.78-.6 5.4 6.73 5.8-8.7.83.55-5.7 8.6 6.3-.38.06 1-6.1.38 5.45 6.8-.8.63-5.73-7.2-5.44 8.17-.82-.56 5.14-7.7zm.7-1.05l-.45.03.24.3.2-.33zm1.03.28l-.46.7.97-.07-.5-.63zm-1.72.77l1.05-.06.13.2.12-.2h-.26l-.53-.63-.5.72zm2-1.13l-.5.04-.4-.5-.36.54.77-.04.26.32.24-.36z" mask="url(#mask-2)" transform="rotate(30 320.594 213.05)"/>
+                                            <path id="star-three" stroke="#FFF" d="M462.72 337.02l-7.7.48-.05-1 8-.5-5.36-6.7.8-.6 5.4 6.73 5.8-8.7.85.55-5.75 8.6 6.3-.38.05 1-6.1.38 5.46 6.8-.8.63-5.73-7.15-5.43 8.16-.84-.56 5.13-7.7zm.7-1.05l-.46.03.24.3.22-.33zm1.02.28l-.47.7.97-.07-.5-.63zm-1.72.77l1-.06.13.16.12-.18-.25.02-.52-.66-.48.72zm1.95-1.13h-.5l-.4-.5-.35.54.76-.04.26.33.23-.36z" mask="url(#mask-2)"/>
+                                            <path id="star-four" stroke="#FFF" d="M692.75 387.3l-7.7.48-.05-1 8-.5-5.36-6.7.78-.6 5.4 6.72 5.8-8.7.83.55-5.75 8.62 6.3-.4.06 1-6.08.4 5.44 6.8-.78.62-5.75-7.2-5.48 8.12-.83-.55 5.13-7.7zm.7-1.05l-.46.03.2.3.22-.33zm1.02.27l-.46.7 1-.06-.5-.64zm-1.72.78l1-.07.14.17.1-.18h-.27l-.53-.64-.47.72zm1.95-1.13l-.5.03-.4-.5-.35.55.76-.05.3.32.23-.35z" mask="url(#mask-2)" transform="rotate(60 693.03 386.277)"/>
+                                        </g>
+
+                                        <circle id="sun" cx="499" cy="481" r="127" fill="#FFF688" mask="url(#mask-2)"/>
+
+                                        <g mask="url(#mask-2)">
+
+                                            <g id="mountains">
+                                                <g id="mountain-one" transform="translate(68 323)">
+                                                    <mask id="mask-7" fill="#fff" >
+                                                        <use xlink:href="#path-6"/>
+                                                    </mask>
+                                                    <use fill="#DDE9EC" xlink:href="#path-6"/>
+                                                    <path id="snow" fill="#FFF" d="M137.5 82.8c24.7-18 59.2-18 103.4 0s76 15.8 95-6.8l-76-98L137 83z" mask="url(#mask-7)"/>
+                                                </g>
+                                                <g id="mountain-two" transform="translate(-27 271)">
+                                                    <mask id="mask-9" fill="#fff">
+                                                        <use xlink:href="#path-8"/>
+                                                    </mask>
+                                                    <use fill="#CEDDE0" xlink:href="#path-8"/>
+                                                    <path id="snow" fill="#FFF" d="M122 97.4c21.8-21.3 52.3-21.3 91.5 0 39 21.4 67.3 18.7 84.6-8L231-26 122 97.3z" mask="url(#mask-9)"/>
+                                                </g>
+                                            </g>
+
+                                            <g id="hills">
+                                                <path id="hill-one" fill="#B6D788" d="M336 663c23.3-88 72.7-132.4 148-133 75.3-.5 121.7 43.8 139 133H336z"/>
+                                                <path id="hill-two" fill="#C5EA7D" d="M171 596c20.8-67.6 64.8-101.6 132-102 67.2-.4 108.5 33.6 124 102H171z"/>
+                                                <path id="hill-three" fill="#D7F1A4" d="M-61 610c29.3-106 91-159.3 185.6-160 94.4-.7 152.7 52.7 174.4 160H-61z"/>
+                                                <path id="hill-four" fill="#D7F1A4" transform="translate(480 465)" d="M0 160C29.3 54 91 .7 185.6 0 280-.7 338.3 52.7 360 160H0z"/>
+                                            </g>
+
+                                            <path id="sand" fill="#FEFFDA" d="M-49.8 615c63-39 84-46 218-46S290 572 424 580s167.2-19 271.2 0c69.3 12.7 135.3 5 198-23l-408 298h-266C-32.4 739.7-122 659.7-49.8 615z"/>
+
+                                            <path id="water-2" fill="#65CFD2" fill-opacity="0" d="M9 634.6c-79.3-31.4-77-42.3 7-32.6 126 14.5 239 27.5 350 13s264 0 359 15c63.3 10 101.7.7 115-28L580 870H235L9 634.7z"/>
+
+                                            <path id="water" fill="#65CFD2" d="M9 634.6c66.7-19.3 142-24.2 226-14.5 126 15 225 15 336 0 74-9 154-4 240 15L580 870H235L9 634.7z"/>
+
+                                        </g>
+
+                                        <path id="nighttime-overlay" fill="url(#nighttime-gradient)" fill-opacity=".5" d="M-20-20h860v860H-20z" style="mix-blend-mode:multiply" opacity="0" mask="url(#mask-2)"/>
+
+                                        <circle id="moon" cx="-85.5" cy="300.5" r="61.5" fill="#FFF" mask="url(#mask-2)" opacity=".9"/>
+
+                                        <path id="cloud" fill="#FFF" d="M522.6 164.7c-21.5 0-40 12.6-44.7 30h-1c-19 0-34 13-34 28.8v.7c0 16 15 28.8 34 28.8h174c19 0 34-13 34-28.8v-.7c0-15.5-15-28.3-33-28.8.2-2.7.4-5.3.4-8 0-30.7-29.5-55.7-66-55.7-26.4 0-50.2 13.5-60.4 34l-4-.3z" mask="url(#mask-2)"/>
+
+                                    </g>
+
+                                    <mask id="mask-13" fill="#fff">
+                                        <use xlink:href="#path-12"/>
+                                    </mask>
+
+                                    <g id="border">
+                                        <use id="border-one" stroke="#D6E1E2" stroke-width="50" xlink:href="#path-12"/>
+                                        <use stroke="#FFF" stroke-width="16" xlink:href="#path-12"/>
+                                    </g>
+
+                                </g>
+
+                            </svg>
+
+                        </div>
+                    </section>
+                    <section>
+                        <a href="https://codepen.io/matchboxhero/pen/dZYOjP" target="_blank">Animation</a>
+                    </section>
+                </section>
+                <section>
+                    <h2>Thanks for attention</h2>
+                </section>
 
 			</div>
 
@@ -512,11 +621,6 @@
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Parallax scrolling
-				 //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-11.jpg',
-         parallaxBackgroundImage: 'img/parallax10.jpg',
-				 parallaxBackgroundSize: '2560px 1600px',
-
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -529,6 +633,28 @@
 			});
 
 		</script>
+
+		<script>
+            window.onload = function(){
+              lineDraw();
+              setInterval(lineDraw, 5000);
+
+            };
+            function lineDraw(){
+            const path = document.querySelector('.line-animated path');
+            let length = path.getTotalLength();
+
+            path.style.transition = path.style.WebkitTransition = 'none';
+            path.style.strokeDasharray = length + ' ' + length;
+            path.style.strokeDashoffset = length;
+
+            path.getBoundingClientRect();
+
+            path.style.transition = path.style.WebkitTransition =
+              'stroke-dashoffset 7s ease-in-out';
+            path.style.strokeDashoffset = '0';
+            };
+        </script>
 
 	</body>
 </html>
