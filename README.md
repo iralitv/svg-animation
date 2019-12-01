@@ -6,11 +6,11 @@ Youtube video:
 
 
 ## Script
-* ####0 slide (SVG)
+* #### 0 slide (SVG)
 SVG is an image format that is based on XML, much like how HTML works. It defines different elements for a number of familiar geometric shapes that can be combined in the markup to produce two-dimensional graphics.
 But wait, we should start from begin, precisely speaking from reasons of creating.
 
-* ####1 slide (typically frontend relationship with image animation)
+* #### 1 slide (typically frontend relationship with image animation)
 **1.1** Any front-end engineer worth their salt is aware of the challenges that the fragmented ecosystem of devices brings.
 
 **1.2** Can you even zoom usual image? What did you see? Right. It’s pixalated. And it’s size around hudreds of kylobytes. And developers had to dodge constantly so that the pictures looked acceptable.
@@ -18,7 +18,7 @@ But wait, we should start from begin, precisely speaking from reasons of creatin
 **1.3** Different screen sizes, resolutions, and aspect ratios make it difficult to deliver a consistent experience. More so for those who want to deliver a pixel-perfect experience.
 And solution is exist! SVG!
 
-* ####2 slide (SVG? WTF?)
+* #### 2 slide (SVG? WTF?)
 **2.1** Scalable Vector Graphics help in solving a part of that problem, and do it very well. 
 Although they have their limitations, SVGs can be very helpful for certain occasions and, if you have a good design team, you can also create a more visually stunning experience without putting undue burden the web browser or hampering the load times.
 
@@ -95,7 +95,7 @@ Note the additive attribute. It shows that animations do not override each other
 **6.7 Combine animation** 
 Synchronize beginning of one animation to end of another. Also we can add interactivity by click with attribute begin. In the second animation this attribute has value first.end. It means the second animation start after ending the first one.
 
-* ####7 slide JS animation
+* #### 7 slide JS animation
 **7.1** For SVG animation we don’t use vanilla JS. SVG become very popular in frontend industry. And it’s main reason why we have so many libraries for animate SVG.
 
 **7.2** the most popular are: Snap.svg, GSAP, Velocity.js, Svg.js, Raphael.js
@@ -105,5 +105,6 @@ Synchronize beginning of one animation to end of another. Also we can add intera
 **7.4** GSAP is paid library. But for CodePen it’s free. So you can play with animation there. So we can get from this picture something like this. 
 
 **7.5** You can see this wonderful snow and the day is changed by night and it's repeat.
-* ####8 slide It’s all for today. Thanks.
+* #### 8 slide 
+It’s all for today. Thanks.
 
