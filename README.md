@@ -1,8 +1,7 @@
 # svg-animation
-SVG Animation Presentation
-https://iralitv.github.io/svg-animation/#/
+SVG Animation Presentation: https://iralitv.github.io/svg-animation/#/
 
-Youtube video:
+Youtube video: https://youtu.be/YqyBUVOsI8U
 
 
 ## Script
